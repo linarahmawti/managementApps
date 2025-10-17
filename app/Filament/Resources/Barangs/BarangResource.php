@@ -33,12 +33,14 @@ class BarangResource extends Resource
                 ->label('Nama'),
             TextInput::make('kode_barang')
                 ->required()
-                ->numeric()
                 ->label('Kode'),
             TextInput::make('harga_barang')
                 ->required()
                 ->numeric()
                 ->label('Harga'),
+              TextInput::make('stok_barang')
+                ->required()
+                ->label('stok_barang'),    
         ]);
     }
 

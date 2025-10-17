@@ -16,8 +16,11 @@ class BarangForm
                 TextInput::make('kode_barang')
                     ->required(),
                 TextInput::make('harga_barang')
+                    ->prefix('Rp')
                     ->required()
                     ->numeric(),
+                TextInput::make('stok_barang')
+                    ->required()
             ]);
     }
 }

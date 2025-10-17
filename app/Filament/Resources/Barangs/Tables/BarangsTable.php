@@ -20,8 +20,10 @@ class BarangsTable
                 TextColumn::make('kode_barang')
                     ->searchable(),
                 TextColumn::make('harga_barang')
-                    ->numeric()
+                    ->money('IDR')
                     ->sortable(),
+                TextColum::make('stok_barang')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

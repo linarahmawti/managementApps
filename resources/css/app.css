@@ -1,11 +1,18 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+/* Custom animations */
+@layer components {
+    .nav-link-active {
+        @apply bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 border-blue-200;
+    }
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    .dropdown-enter {
+        @apply transform opacity-0 scale-95;
+    }
+
+    .dropdown-enter-active {
+        @apply transform opacity-100 scale-100 transition duration-200 ease-out;
+    }
 }
