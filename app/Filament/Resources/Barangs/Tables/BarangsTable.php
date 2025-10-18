@@ -22,7 +22,7 @@ class BarangsTable
                 TextColumn::make('harga_barang')
                     ->money('IDR')
                     ->sortable(),
-                TextColum::make('stok_barang')
+                TextColumn::make('stok')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

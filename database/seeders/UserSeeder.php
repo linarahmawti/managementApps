@@ -80,44 +80,52 @@ class UserSeeder extends Seeder
         ]);
 
         // Create Sample Assignments
-        Assignment::create([
-            'barang_id' => $barang1->id,
-            'karyawan_id' => $karyawan1->id,
-            'jumlah' => 5,
-            'lokasi_tujuan' => 'Jakarta Pusat - PT. ABC Technology',
-            'status' => 'pending',
-            'tanggal_assignment' => now(),
-            'catatan' => 'Harap hati-hati saat pengiriman, barang elektronik'
-        ]);
+       Assignment::create([
+    'barang_id' => $barang1->id,
+    'karyawan_id' => $karyawan1->id,
+    'jumlah' => 5,
+    'harga_satuan' => $barang1->harga_barang,
+    'subtotal' => 5 * $barang1->harga_barang,
+    'lokasi_tujuan' => 'Jakarta Pusat - PT. ABC Technology',
+    'status' => 'pending',
+    'tanggal_assignment' => now(),
+    'catatan' => 'Harap hati-hati saat pengiriman, barang elektronik'
+]);
 
-        Assignment::create([
-            'barang_id' => $barang2->id,
-            'karyawan_id' => $karyawan2->id,
-            'jumlah' => 25,
-            'lokasi_tujuan' => 'Surabaya - Toko Komputer Sejahtera',
-            'status' => 'in_progress',
-            'tanggal_assignment' => now()->subDays(1),
-            'catatan' => 'Pengiriman reguler'
-        ]);
+Assignment::create([
+    'barang_id' => $barang2->id,
+    'karyawan_id' => $karyawan2->id,
+    'jumlah' => 25,
+    'harga_satuan' => $barang2->harga_barang,
+    'subtotal' => 25 * $barang2->harga_barang,
+    'lokasi_tujuan' => 'Surabaya - Toko Komputer Sejahtera',
+    'status' => 'in_progress',
+    'tanggal_assignment' => now()->subDays(1),
+    'catatan' => 'Pengiriman reguler'
+]);
 
-        Assignment::create([
-            'barang_id' => $barang3->id,
-            'karyawan_id' => $karyawan3->id,
-            'jumlah' => 10,
-            'lokasi_tujuan' => 'Bandung - Gaming Store XYZ',
-            'status' => 'pending',
-            'tanggal_assignment' => now(),
-            'catatan' => 'Customer premium, prioritas tinggi'
-        ]);
+Assignment::create([
+    'barang_id' => $barang3->id,
+    'karyawan_id' => $karyawan3->id,
+    'jumlah' => 10,
+    'harga_satuan' => $barang3->harga_barang,
+    'subtotal' => 10 * $barang3->harga_barang,
+    'lokasi_tujuan' => 'Bandung - Gaming Store XYZ',
+    'status' => 'pending',
+    'tanggal_assignment' => now(),
+    'catatan' => 'Customer premium, prioritas tinggi'
+]);
 
-        Assignment::create([
-            'barang_id' => $barang4->id,
-            'karyawan_id' => $karyawan1->id,
-            'jumlah' => 3,
-            'lokasi_tujuan' => 'Yogyakarta - Universitas ABC',
-            'status' => 'pending',
-            'tanggal_assignment' => now()->addDays(1),
-            'catatan' => 'Pengiriman untuk kebutuhan lab komputer'
-        ]);
+Assignment::create([
+    'barang_id' => $barang4->id,
+    'karyawan_id' => $karyawan1->id,
+    'jumlah' => 3,
+    'harga_satuan' => $barang4->harga_barang,
+    'subtotal' => 3 * $barang4->harga_barang,
+    'lokasi_tujuan' => 'Yogyakarta - Universitas ABC',
+    'status' => 'pending',
+    'tanggal_assignment' => now()->addDays(1),
+    'catatan' => 'Pengiriman untuk kebutuhan lab komputer'
+]);
     }
 }

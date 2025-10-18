@@ -40,7 +40,7 @@ class BarangResource extends Resource
                 ->label('Harga'),
               TextInput::make('stok_barang')
                 ->required()
-                ->label('stok_barang'),    
+                ->label('stok_barang'),
         ]);
     }
 

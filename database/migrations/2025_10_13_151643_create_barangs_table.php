@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
             $table->string('nama_barang');
-            $table->string('kode_barang');
-            $table->decimal('harga_satuan', 15, 2);
-            $table->string('stok_barang')
+            $table->string('kode_barang')->unique();
+            $table->decimal('harga_barang', 15, 2);
+            $table->integer('stok')->default(0);
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
