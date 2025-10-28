@@ -34,11 +34,11 @@
             </script>
         @endif
     </head>
-    <body class="font-sans antialiased text-soy-text dark:text-creme">
+    <body class="font-sans antialiased text-soy-text dark:text-creme bg-[#19A4ED]">
         <div class="relative min-h-screen flex flex-col items-center justify-center p-6">
 
             <main class="flex-grow flex flex-col items-center justify-center text-center">
-                <div class="max-w-3xl h-auto  p-20 rounded-3xl shadow-lg">
+                <div class="max-w-3xl h-auto  p-20 rounded-3xl shadow-lg bg-white">
                     <h1 class="text-4xl font-bold tracking-tight text-soy-dark text-[#19A4ED] uppercase lg:text-3xl">
                         Selamat Datang di Aplikasi Manajemen Tahu & Tempe Kami!
                     </h1>
