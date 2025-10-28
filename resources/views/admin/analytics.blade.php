@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-sm font-medium text-gray-600">Total Pengantaran</h4>
-                                    <p class="text-3xl font-bold text-blue-600">{{ $todayStats['total_deliveries'] }}</p>
+                                    <p class="text-3xl font-bold text-blue-600">{{ $this->todayStats['total_deliveries'] }}</p>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-sm font-medium text-gray-600">Pendapatan</h4>
-                                    <p class="text-2xl font-bold text-green-600">Rp {{ number_format($todayStats['total_revenue'], 0, ',', '.') }}</p>
+                                    <p class="text-2xl font-bold text-green-600">Rp {{ number_format($this->todayStats['total_revenue'], 0, ',', '.') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-sm font-medium text-gray-600">Total Penjualan (pcs)</h4>
-                                    <p class="text-3xl font-bold text-yellow-600">{{ number_format($todayStats['delivered_items']) }} <span class="text-xl font-medium text-yellow-600">pcs</span></p>
+                                    <p class="text-3xl font-bold text-yellow-600">{{ number_format($this->todayStats['delivered_items']) }} <span class="text-xl font-medium text-yellow-600">pcs</span></p>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-sm font-medium text-gray-600">Lokasi Terlayani</h4>
-                                    <p class="text-3xl font-bold text-purple-600">{{ $todayStats['unique_locations'] }}</p>
+                                    <p class="text-3xl font-bold text-purple-600">{{ $this->todayStats['unique_locations'] }}</p>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                         <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
                             <div class="text-center">
                                 <i class="fas fa-shipping-fast text-indigo-600 text-3xl mb-2"></i>
-                                <h4 class="text-lg font-semibold text-gray-800">{{ $monthlyStats['total_deliveries'] }}</h4>
+                                <h4 class="text-lg font-semibold text-gray-800">{{ $this->monthlyStats['total_deliveries'] }}</h4>
                                 <p class="text-sm text-gray-600">Total Pengantaran</p>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                         <div class="bg-emerald-50 p-6 rounded-lg border border-emerald-200">
                             <div class="text-center">
                                 <i class="fas fa-coins text-emerald-600 text-3xl mb-2"></i>
-                                <h4 class="text-lg font-semibold text-gray-800">Rp {{ number_format($monthlyStats['total_revenue'], 0, ',', '.') }}</h4>
+                                <h4 class="text-lg font-semibold text-gray-800">Rp {{ number_format($this->monthlyStats['total_revenue'], 0, ',', '.') }}</h4>
                                 <p class="text-sm text-gray-600">Total Pendapatan</p>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                         <div class="bg-orange-50 p-6 rounded-lg border border-orange-200">
                             <div class="text-center">
                                 <i class="fas fa-cubes text-orange-600 text-3xl mb-2"></i>
-                                <h4 class="text-lg font-semibold text-gray-800">{{ number_format($monthlyStats['delivered_items']) }} <span class="text-sm text-gray-600">pcs</span></h4>
+                                <h4 class="text-lg font-semibold text-gray-800">{{ number_format($this->monthlyStats['delivered_items']) }} <span class="text-sm text-gray-600">pcs</span></h4>
                                 <p class="text-sm text-gray-600">Total Penjualan (pcs)</p>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                         <div class="bg-pink-50 p-6 rounded-lg border border-pink-200">
                             <div class="text-center">
                                 <i class="fas fa-globe text-pink-600 text-3xl mb-2"></i>
-                                <h4 class="text-lg font-semibold text-gray-800">{{ $monthlyStats['unique_locations'] }}</h4>
+                                <h4 class="text-lg font-semibold text-gray-800">{{ $this->monthlyStats['unique_locations'] }}</h4>
                                 <p class="text-sm text-gray-600">Lokasi Terlayani</p>
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                         Trend Pendapatan 7 Hari Terakhir
                     </h3>
                     <div class="h-64 flex items-end justify-between space-x-2">
-                        @foreach($chartData as $data)
+                        @foreach($this->chartData as $data)
                             <div class="flex flex-col items-center flex-1">
                                 <div class="bg-green-500 rounded-t w-full relative"
                                      style="height: {{ $data['revenue'] > 0 ? (($data['revenue'] / max(array_column($chartData, 'revenue'))) * 200) : 5 }}px;">
@@ -143,7 +143,7 @@
                             Karyawan Terbaik Bulan Ini
                         </h3>
                         <div class="space-y-4">
-                            @forelse($topEmployees as $index => $employee)
+                            @forelse($this->topEmployees as $index => $employee)
                                 <div class="flex items-center p-4 bg-gray-50 rounded-lg">
                                     <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
                                         {{ $index + 1 }}
@@ -171,7 +171,7 @@
                             Laporan Terbaru
                         </h3>
                         <div class="space-y-3 max-h-96 overflow-y-auto">
-                            @forelse($recentReports as $report)
+                            @forelse($this->recentReports as $report)
                                 <div class="flex items-center p-3 border border-gray-200 rounded-lg">
                                     <div class="flex-1">
                                         <h4 class="font-medium text-gray-800 text-sm">{{ $report->nama_barang }}</h4>

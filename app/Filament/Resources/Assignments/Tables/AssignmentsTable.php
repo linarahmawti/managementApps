@@ -50,6 +50,13 @@ class AssignmentsTable
                         'in_progress' => 'info',
                         'completed' => 'success',
                         'cancelled' => 'danger',
+                    })
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'pending' => 'Menunggu',
+                        'in_progress' => 'Sedang Diproses',
+                        'completed' => 'Selesai',
+                        'cancelled' => 'Dibatalkan',
+                        default => $state,
                     }),
                 TextColumn::make('tanggal_assignment')
                     ->label('Tanggal Assignment')
@@ -64,10 +71,10 @@ class AssignmentsTable
                 TrashedFilter::make(),
                 SelectFilter::make('status')
                     ->options([
-                        'pending' => 'Pending',
-                        'in_progress' => 'In Progress',
-                        'completed' => 'Completed',
-                        'cancelled' => 'Cancelled',
+                        'pending' => 'Menunggu',
+                        'in_progress' => 'Sedang Diproses',
+                        'completed' => 'Selesai',
+                        'cancelled' => 'Dibatalkan',
                     ]),
             ])
             ->recordActions([

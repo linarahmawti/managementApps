@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
 
     // Admin routes
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
-        Route::get('/analytics', [AdminController::class, 'analytics'])->name('analytics');
+        //Route::get('/analytics', [AdminController::class, 'analytics'])->name('analytics');
         Route::get('/history', [AdminController::class, 'history'])->name('history');
     });
 });

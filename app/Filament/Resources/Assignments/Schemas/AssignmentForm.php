@@ -66,10 +66,10 @@ class AssignmentForm
                 Select::make('status')
                     ->label('Status')
                     ->options([
-                        'pending' => 'Pending',
-                        'in_progress' => 'In Progress',
-                        'completed' => 'Completed',
-                        'cancelled' => 'Cancelled',
+                        'pending' => 'Menunggu',
+                        'in_progress' => 'Sedang Diproses',
+                        'completed' => 'Selesai',
+                        'cancelled' => 'Dibatalkan',
                     ])
                     ->default('pending')
                     ->required(),
